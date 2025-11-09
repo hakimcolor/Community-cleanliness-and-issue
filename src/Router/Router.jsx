@@ -3,7 +3,7 @@ import Root from '../Root/Root';
 
 import { Suspense } from 'react';
 import Home from '../Pages/Home';
-import SingUP from '../Pages/SingUp'
+import SingUP from '../Pages/SingUp';
 import SignIn from '../Pages/Singin';
 
 export const router = createBrowserRouter([

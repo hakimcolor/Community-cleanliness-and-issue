@@ -67,8 +67,8 @@ const Header = () => {
             <span className="text-red-500">C</span>
             <span className="text-orange-500">C</span>
             <span className="text-yellow-400">I</span>
-            <span className="text-green-500">R</span>
-            <span className="text-blue-500 ">P</span>
+            <span className="text-green-300">R</span>
+            <span className="text-blue-200 ">P</span>
           </span>
         </NavLink>
 
