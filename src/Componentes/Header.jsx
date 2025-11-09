@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiLogOut, FiMenu, FiX } from 'react-icons/fi';
 import logo from '../assets/Logo.png';
-
 import { AuthContext } from '../Context/AuthContext';
 import toast, { Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
@@ -52,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 bg-[#3B2F2F] shadow-md z-50 animate__animated animate__fadeInDown animate__faster">
+    <header className="w-full fixed top-0 left-0 bg-[#2E8B57] shadow-md z-50 animate__animated animate__fadeInDown animate__faster">
       <Toaster position="top-right" />
       <div className="flex justify-between items-center p-4 max-w-7xl mx-auto">
         <NavLink
@@ -64,8 +63,12 @@ const Header = () => {
             alt="Logo"
             className="w-16 h-16 rounded-full animate__animated animate__bounceIn"
           />
-          <span className="hidden sm:block text-2xl font-bold text-[#FFDAB9]">
-            Pet Care in Winter
+          <span className="hidden sm:flex text-2xl font-bold">
+            <span className="text-red-500">C</span>
+            <span className="text-orange-500">C</span>
+            <span className="text-yellow-400">I</span>
+            <span className="text-green-500">R</span>
+            <span className="text-blue-500 ">P</span>
           </span>
         </NavLink>
 
@@ -81,7 +84,7 @@ const Header = () => {
               />
               <span
                 className="absolute top-full mt-2 left-1/2 -translate-x-1/2
-                bg-[#FFD700] text-[#3B2F2F] text-sm font-medium 
+                bg-[#FFD700] text-[#2E8B57] text-sm font-medium 
                 px-2 py-1 rounded opacity-0 group-hover:opacity-100 
                 transition-opacity duration-200 whitespace-nowrap"
               >
@@ -100,7 +103,7 @@ const Header = () => {
                 `font-medium transition-all duration-200 ${
                   isActive
                     ? 'text-[#FFD700] underline underline-offset-4'
-                    : 'text-[#FFDAB9] hover:text-[#FFD700]'
+                    : 'text-white hover:text-[#FFD700]'
                 }`
               }
             >
@@ -122,7 +125,7 @@ const Header = () => {
                 />
                 <span
                   className="absolute top-full mt-2 left-1/2 -translate-x-1/2
-                  bg-[#FFD700] text-[#3B2F2F] text-sm font-medium 
+                  bg-[#FFD700] text-[#2E8B57] text-sm font-medium 
                   px-2 py-1 rounded opacity-0 group-hover:opacity-100 
                   transition-opacity duration-200 whitespace-nowrap"
                 >
@@ -130,15 +133,19 @@ const Header = () => {
                 </span>
               </div>
               <button
-                onClick={handleLogout}
-                className="border border-[#FFD700] text-[#FFDAB9] px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#3B2F2F] transition duration-300"
+                onClick={() => {
+                  handleLogout();
+                  setIsOpen(false);
+                }}
+                className="border border-[#FFD700] text-white px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300 flex items-center gap-2 font-semibold  "
               >
+                <FiLogOut size={18} />
                 Log Out
               </button>
             </div>
           ) : (
             <NavLink to="/signup">
-              <button className="border border-[#FFD700] text-[#FFDAB9] px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#3B2F2F] transition duration-300">
+              <button className="border border-[#FFD700] text-white px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300">
                 Sign Up
               </button>
             </NavLink>
@@ -147,14 +154,14 @@ const Header = () => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-2xl text-[#FFDAB9]"
+          className="md:hidden text-2xl text-white"
         >
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
 
       {isOpen && (
-        <div className="md:hidden fixed top-24 right-0 p-10 bg-[#3B2F2F] shadow-md rounded-bl-3xl animate__animated animate__slideInRight z-40">
+        <div className="md:hidden fixed top-24 right-0 p-10 bg-[#2E8B57] shadow-md rounded-bl-3xl animate__animated animate__slideInRight z-40">
           <nav className="flex flex-col items-center py-4 space-y-4">
             {navLinks.map((link) => (
               <NavLink
@@ -165,7 +172,7 @@ const Header = () => {
                   `text-lg transition-all duration-200 ${
                     isActive
                       ? 'text-[#FFD700] underline underline-offset-4'
-                      : 'text-[#FFDAB9] hover:text-[#FFD700]'
+                      : 'text-white hover:text-[#FFD700]'
                   }`
                 }
               >
@@ -180,14 +187,14 @@ const Header = () => {
                     handleLogout();
                     setIsOpen(false);
                   }}
-                  className="border border-[#FFD700] text-[#FFDAB9] px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#3B2F2F] transition duration-300"
+                  className="border border-[#FFD700] text-white px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300"
                 >
                   Log Out
                 </button>
               </div>
             ) : (
               <NavLink to="/signup" onClick={() => setIsOpen(false)}>
-                <button className="border border-[#FFD700] text-[#FFDAB9] px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#3B2F2F] transition duration-300">
+                <button className="border border-[#FFD700] text-white px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300">
                   Sign Up
                 </button>
               </NavLink>
