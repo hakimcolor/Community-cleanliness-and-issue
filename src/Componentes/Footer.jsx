@@ -95,10 +95,10 @@ export default function Footer({
                 ? links
                 : [
                     { text: 'Home', href: '/' },
-                    { text: 'All Issues', href: '/issues' },
-                    { text: 'Add Issue', href: '/add-issue' },
-                    { text: 'My Issues', href: '/my-issues' },
-                    { text: 'My Contributions', href: '/my-contributions' },
+                    { text: 'All Issues', href: '/allissues' },
+                    { text: 'Add Issue', href: '/addissues' },
+                    { text: 'My Issues', href: '/myissues' },
+                    { text: 'My Contributions', href: '/contribution' },
                   ]
               ).map((l, idx) => (
                 <li key={idx}>

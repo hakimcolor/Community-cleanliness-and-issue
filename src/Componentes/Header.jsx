@@ -13,8 +13,16 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Profile', path: '/profile' },
+    { name: 'All Issues', path: '/allissues' },
+    { name: 'Add Issues', path: '/addissues' },
+    {
+      name: 'My Issues',
+      path: '/myissues',
+    },
+    {
+      name: 'My Contribution, ',
+      path: '/contribution',
+    },
   ];
 
   const handleLogout = () => {
