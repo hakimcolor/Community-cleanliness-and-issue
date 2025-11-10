@@ -11,19 +11,18 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'All Issues', path: '/allissues' },
-    { name: 'Add Issues', path: '/addissues' },
-    {
-      name: 'My Issues',
-      path: '/myissues',
-    },
-    {
-      name: 'My Contribution, ',
-      path: '/contribution',
-    },
-  ];
+const navLinks = user
+  ? [
+      { name: 'Home', path: '/' },
+      { name: 'All Issues', path: '/allissues' },
+      { name: 'Add Issues', path: '/addissues' },
+      { name: 'My Issues', path: '/myissues' },
+      { name: 'My Contribution', path: '/contribution' },
+    ]
+  : [
+      { name: 'Home', path: '/' },
+      { name: 'All Issues', path: '/allissues' },
+    ];
 
   const handleLogout = () => {
     if (!singout) return;

@@ -33,7 +33,7 @@ const SignIn = () => {
         setEmail('');
         setPasscode('');
         toast.success('Sign in successful!', { duration: 1000 });
-        navigate('/services');
+        navigate('/allissues');
       })
       .catch((err) => {
         setError(err.message);
@@ -49,7 +49,7 @@ const SignIn = () => {
         setEmail('');
         setPasscode('');
         toast.success('Sign in successful!', { duration: 2000 });
-        navigate('/services');
+        navigate('/allissues');
       })
       .catch((err) => {
         setError(err.message);
