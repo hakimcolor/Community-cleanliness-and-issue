@@ -1,11 +1,12 @@
 import React from 'react'
 import { useLoaderData } from 'react-router'
+import MyIssuesDetilesCart from './MyIssuesDetilesCart';
 
 const MyIssues = () => {
   const myissusdata = useLoaderData();
   return (
     <div>
-      <ALLCARD myissusdata={myissusdata}></ALLCARD>
+      <MyIssuesDetilesCart myissusdata={myissusdata} />
     </div>
   );
 }
