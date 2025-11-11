@@ -40,7 +40,11 @@ export const router = createBrowserRouter([
           },
           { path: 'addissues', element: <AddIssue /> },
           { path: 'myissues', element: <MyIssues /> },
-          { path: 'contribution', element: <MyContribution /> },
+          {
+            path: 'contribution',
+            element: <MyContribution />,
+            loader: () => fetch('http://localhost:3000/contrbutessssssssssss'),
+          },
 
           {
             path: '/issue/:id',
