@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import Home from '../Pages/Home';
 import SignUp from '../Pages/SingUp'; // make sure the file name matches
 import SignIn from '../Pages/Singin';
-import AllIssues from '../Pages/AllIssuses';
+
 import AddIssue from '../Pages/AddIssue';
 import MyIssues from '../Pages/MyIssues';
 import MyContribution from '../Pages/MyContribution';
@@ -16,6 +16,7 @@ import Privacy from '../Pages/Privacyssss';
 import Contact from '../Pages/Contact';
 import IssueDetails from '../Pages/IssueDetails';
 import ContributeCard from '../Pages/ContributeCard';
+import AllIssues from '../Pages/AllIssuses';
 
 export const router = createBrowserRouter([
   {

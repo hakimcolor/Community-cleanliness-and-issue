@@ -1,60 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import { FiArrowRight } from 'react-icons/fi';
-
-// const ALLCARD = ({ allissues }) => {
-//   return (
-//     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 pb-10">
-//       {allissues.map((issue) => (
-//         <div
-//           key={issue._id}
-//           className="rounded-lg shadow-md overflow-hidden border border-[#FFD700]/70 
-//                      hover:shadow-xl transition-all duration-300 flex flex-col h-[420px]
-//                      bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70"
-//         >
-//           {/* Image */}
-//           <img
-//             src={issue.image}
-//             alt={issue.title}
-//             className="w-full h-48 object-cover opacity-95 hover:opacity-100 transition"
-//           />
-
-//           {/* Content */}
-//           <div className="p-4 flex flex-col flex-grow text-white">
-//             <div className="space-y-2 flex-grow">
-//               <h3 className="text-xl font-semibold">{issue.title}</h3>
-//               <p className="text-sm">
-//                 <span className="font-medium text-[#FFD700]">Category:</span>{' '}
-//                 {issue.category}
-//               </p>
-//               <p className="text-sm">
-//                 <span className="font-medium text-[#FFD700]">Location:</span>{' '}
-//                 {issue.location}
-//               </p>
-//               <p className="text-sm">
-//                 <span className="font-medium text-[#FFD700]">Amount:</span> $
-//                 {issue.amount}
-//               </p>
-//             </div>
-
-//             {/* Button */}
-//             <div className="mt-auto pt-3">
-//               <Link
-//                 to={`/issue/${issue._id}`}
-//                 className="flex items-center justify-center gap-2 border border-[#FFD700] bg-[#2E8B57] text-white px-4 py-2 rounded-full 
-//                            hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300 font-semibold"
-//               >
-//                 See Details <FiArrowRight />
-//               </Link>
-//             </div>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default ALLCARD;
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
@@ -62,55 +5,56 @@ import { FiArrowRight } from 'react-icons/fi';
 const ALLCARD = ({ allissues }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6 pb-10">
-      {allissues.map((issue) => (
-        <div
-          key={issue._id}
-          className="rounded-xl shadow-md overflow-hidden border border-[#FFD700]/70 
+      {Array.isArray(allissues) &&
+        allissues.map((issue) => (
+          <div
+            key={issue._id}
+            className="rounded-xl shadow-md overflow-hidden border border-[#FFD700]/70 
                      hover:shadow-xl transition-all duration-300 flex flex-col h-full
                      bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70"
-        >
-          {/* Image */}
-          <div className="w-full aspect-[16/9] overflow-hidden">
-            <img
-              src={issue.image}
-              alt={issue.title}
-              className="w-full h-full object-cover transform hover:scale-105 transition duration-500"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="p-4 flex flex-col flex-grow text-white">
-            <div className="space-y-2 flex-grow">
-              <h3 className="text-lg sm:text-xl font-semibold">
-                {issue.title}
-              </h3>
-              <p className="text-sm">
-                <span className="font-medium text-[#FFD700]">Category:</span>{' '}
-                {issue.category}
-              </p>
-              <p className="text-sm">
-                <span className="font-medium text-[#FFD700]">Location:</span>{' '}
-                {issue.location}
-              </p>
-              <p className="text-sm">
-                <span className="font-medium text-[#FFD700]">Amount:</span> $
-                {issue.amount}
-              </p>
+          >
+            {/* Image */}
+            <div className="w-full aspect-[16/9] overflow-hidden">
+              <img
+                src={issue.image}
+                alt={issue.title}
+                className="w-full h-full object-cover transform hover:scale-105 transition duration-500"
+              />
             </div>
 
-            {/* Button */}
-            <div className="mt-auto pt-3">
-              <Link
-                to={`/issue/${issue._id}`}
-                className="flex items-center justify-center gap-2 border border-[#FFD700] bg-[#2E8B57] text-white px-4 py-2 rounded-full 
+            {/* Content */}
+            <div className="p-4 flex flex-col flex-grow text-white">
+              <div className="space-y-2 flex-grow">
+                <h3 className="text-lg sm:text-xl font-semibold">
+                  {issue.title}
+                </h3>
+                <p className="text-sm">
+                  <span className="font-medium text-[#FFD700]">Category:</span>{' '}
+                  {issue.category}
+                </p>
+                <p className="text-sm">
+                  <span className="font-medium text-[#FFD700]">Location:</span>{' '}
+                  {issue.location}
+                </p>
+                <p className="text-sm">
+                  <span className="font-medium text-[#FFD700]">Amount:</span> $
+                  {issue.amount}
+                </p>
+              </div>
+
+              {/* Button */}
+              <div className="mt-auto pt-3">
+                <Link
+                  to={`/issue/${issue._id}`}
+                  className="flex items-center justify-center gap-2 border border-[#FFD700] bg-[#2E8B57] text-white px-4 py-2 rounded-full 
                            hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300 font-semibold"
-              >
-                See Details <FiArrowRight />
-              </Link>
+                >
+                  See Details <FiArrowRight />
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };
