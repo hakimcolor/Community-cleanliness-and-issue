@@ -202,7 +202,7 @@ export default function Footer({
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 mt-96 text-gray-800 dark:text-gray-200">
+    <footer className="bg-gray-50 dark:bg-gray-900  text-gray-800 dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
