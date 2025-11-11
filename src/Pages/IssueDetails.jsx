@@ -111,6 +111,17 @@ const IssueDetails = () => {
               {issue.description}
             </p>
           </div>
+          <div className="pt-6 flex justify-center">
+            <button
+              className="px-6 py-3 text-lg font-semibold text-white rounded-full 
+              bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 
+              hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 
+              transition-all duration-300 shadow-lg hover:shadow-2xl"
+              onClick={() => alert('Thank you for your contribution!')}
+            >
+              💰 Contribute Now
+            </button>
+          </div>
         </div>
       </div>
     </div>
