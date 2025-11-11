@@ -30,7 +30,7 @@
 
 // export default IssueDetails;
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import { Calendar, MapPin, Tag, DollarSign } from 'lucide-react';
 
 const IssueDetails = () => {
@@ -111,17 +111,20 @@ const IssueDetails = () => {
               {issue.description}
             </p>
           </div>
-          <div className="pt-6 flex justify-center">
-            <button
-              className="px-6 py-3 text-lg font-semibold text-white rounded-full 
+          <NavLink to={`/contributionss/${issue._id}`}>
+            {' '}
+            <div className="pt-6 flex justify-center">
+              <button
+                className="px-6 py-3 text-lg font-semibold text-white rounded-full 
               bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 
               hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 
               transition-all duration-300 shadow-lg hover:shadow-2xl"
-              onClick={() => alert('Thank you for your contribution!')}
-            >
-              💰 Contribute Now
-            </button>
-          </div>
+                onClick={() => alert('Thank you for your contribution!')}
+              >
+                💰 Contribute Now
+              </button>
+            </div>
+          </NavLink>
         </div>
       </div>
     </div>

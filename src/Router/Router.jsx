@@ -15,6 +15,7 @@ import Terms from '../Pages/Terms';
 import Privacy from '../Pages/Privacyssss';
 import Contact from '../Pages/Contact';
 import IssueDetails from '../Pages/IssueDetails';
+import ContributeCard from '../Pages/ContributeCard';
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,18 @@ export const router = createBrowserRouter([
           {
             path: '/issue/:id',
             element: <IssueDetails />,
+            loader: ({ params }) =>
+              fetch(`http://localhost:3000/issue/${params.id}`),
+          },
+          // { path: 'contribution', element: <ContributeCard /> },
+          // {
+          //   path: '/contribute',
+          //   element:<ContributeCard></ContributeCard>
+          // },
+
+          {
+            path: '/contributionss/:id',
+            element: <ContributeCard />,
             loader: ({ params }) =>
               fetch(`http://localhost:3000/issue/${params.id}`),
           },
