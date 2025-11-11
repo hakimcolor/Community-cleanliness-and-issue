@@ -40,7 +40,11 @@ export const router = createBrowserRouter([
             loader: () => fetch('http://localhost:3000/issue'),
           },
           { path: 'addissues', element: <AddIssue /> },
-          { path: 'myissues', element: <MyIssues /> },
+          {
+            path: 'myissues',
+            element: <MyIssues />,
+            loader: () => fetch('http://localhost:3000/allmyissues'),
+          },
           {
             path: 'contribution',
             element: <MyContribution />,

@@ -9,7 +9,6 @@ const AddIssue = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Make sure amount is a number and date is serialized properly
     const formData = {
       title: e.target.title.value.trim(),
       category: e.target.category.value,
@@ -18,34 +17,25 @@ const AddIssue = () => {
       image: e.target.image.value.trim(),
       amount: parseFloat(e.target.amount.value),
       status: 'ongoing',
-      date: new Date().toISOString(), // Use ISO string for backend
+      date: new Date().toISOString(),
       email: user.email,
     };
 
     try {
-      // Send POST requests
-      const [res1, res2] = await Promise.all([
-        fetch('http://localhost:3000/issue', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        }),
-        fetch('http://localhost:3000/myissue', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        }),
-      ]);
+      // শুধুমাত্র myissue তে ডাটা যাবে
+      const res = await fetch('http://localhost:3000/myissue', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-      if (!res1.ok || !res2.ok) throw new Error('Failed to add issue');
+      if (!res.ok) throw new Error('Failed to add issue');
 
-      const data1 = await res1.json();
-      const data2 = await res2.json();
+      const data = await res.json();
+      console.log('Response:', data);
 
-      console.log('Responses:', data1, data2);
-
-      toast.success('Issue added successfully!');
-      e.target.reset(); // Reset form after successful submission
+      toast.success('Issue added successfully to My Issues!');
+      e.target.reset();
     } catch (err) {
       console.error(err);
       toast.error('Failed to add issue. Please try again.');
