@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
-const MyIssuesDetilesCart = ({ myissusdata }) => {
-  
+const MyIssuesDetilesCart = ({ allissues }) => {
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6 pb-10">
-        {Array.isArray(myissusdata) &&
-          myissusdata.map((issue) => (
+        {Array.isArray(allissues) &&
+          allissues.map((issue) => (
             <div
               key={issue._id}
               className="rounded-xl shadow-md overflow-hidden border border-[#FFD700]/70 

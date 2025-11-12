@@ -17,6 +17,7 @@ import Contact from '../Pages/Contact';
 import IssueDetails from '../Pages/IssueDetails';
 import ContributeCard from '../Pages/ContributeCard';
 import AllIssues from '../Pages/AllIssuses';
+import IssueDetails2222 from '../Pages/IssueDetails2222';
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,12 @@ export const router = createBrowserRouter([
             element: <IssueDetails />,
             loader: ({ params }) =>
               fetch(`http://localhost:3000/issue/${params.id}`),
+          },
+          {
+            path: '/myissues/:id',
+            element: <IssueDetails2222 />,
+            loader: ({ params }) =>
+              fetch(`http://localhost:3000/allmyissues/${params.id}`),
           },
           // { path: 'contribution', element: <ContributeCard /> },
           // {
