@@ -24,7 +24,6 @@ const Contact = () => {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-gray-800 dark:text-gray-500">
-        {/* Email */}
         <div className="flex items-center space-x-4">
           <FaEnvelope className="text-indigo-600 dark:text-indigo-400 text-2xl" />
           <a href="mailto:hakimcolor777@gmail.com" className="hover:underline">
@@ -32,13 +31,13 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* Phone */}
+ 
         <div className="flex items-center space-x-4">
           <FaPhone className="text-indigo-600 dark:text-indigo-400 text-2xl" />
           <span>+880 1818 777 856</span>
         </div>
 
-        {/* WhatsApp */}
+       
         <div className="flex items-center space-x-4">
           <FaWhatsapp className="text-green-500 text-2xl" />
           <a
@@ -51,7 +50,7 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* Facebook */}
+    
         <div className="flex items-center space-x-4">
           <FaFacebookF className="text-blue-600 text-2xl" />
           <a
@@ -64,7 +63,7 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* Instagram */}
+
         <div className="flex items-center space-x-4">
           <FaInstagram className="text-pink-500 text-2xl" />
           <a
@@ -77,7 +76,7 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* X / Twitter */}
+    
         <div className="flex items-center space-x-4">
           <FaTwitter className="text-blue-400 text-2xl" />
           <a

@@ -1,24 +1,151 @@
+// import { createBrowserRouter } from 'react-router-dom';
+// import Root from '../Root/Root';
+// import { Suspense } from 'react';
+
+// import Home from '../Pages/Home';
+// import SignUp from '../Pages/SingUp'; 
+// import SignIn from '../Pages/Singin';
+
+// import AddIssue from '../Pages/AddIssue';
+
+// import MyContribution from '../Pages/MyContribution';
+// import PrivateRouter from './PriveteRouter'; 
+// import PublicRoute from './PublicRouter';
+// import Terms from '../Pages/Terms';
+// import Privacy from '../Pages/Privacyssss';
+// import Contact from '../Pages/Contact';
+// import IssueDetails from '../Pages/IssueDetails';
+// import ContributeCard from '../Pages/ContributeCard';
+// import AllIssues from '../Pages/AllIssuses';
+// import MYIssues from '../Pages/MYIssues';
+// import NotFound from '../Pages/NotFound';
+// import login from '../Pages/Loding'
+
+// export const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Root />,
+//     children: [
+//       {
+//         index: true,
+//         element: (
+//           <Suspense fallback={<div>Loading...</div>}>
+//             <Home />
+//           </Suspense>
+//         ),
+//         loader: () => fetch('https://community-clen.vercel.app/latest-data'),
+//       },
+//       {
+//         element: <PrivateRouter />,
+//         children: [
+//           {
+//             path: 'allissues',
+//             element: <AllIssues />,
+//             loader: () => fetch('https://community-clen.vercel.app/issue'),
+//           },
+//           { path: 'addissues', element: <AddIssue /> },
+//           // {
+//           //   path: 'myissues',
+//           //   element: <MyIssues />,
+//           //   loader: () => fetch('https://community-clen.vercel.app/allmyissues'),
+//           // },
+//           {
+//             path: 'contribution',
+//             element: <MyContribution />,
+//             loader: () =>
+//               fetch('https://community-clen.vercel.app/contrbutessssssssssss'),
+//           },
+//           {
+//             path: 'myissues',
+//             element: <MYIssues />,
+//             loader: () =>
+//               fetch('https://community-clen.vercel.app/allmyissues'),
+//           },
+
+//           {
+//             path: '/issue/:id',
+//             element: <IssueDetails />,
+//             loader: ({ params }) =>
+//               fetch(`https://community-clen.vercel.app/issue/${params.id}`),
+//           },
+
+//           {
+//             path: '/allmyissues/:id',
+//             element: <IssueDetails />,
+//             loader: ({ params }) =>
+//               fetch(
+//                 `https://community-clen.vercel.app/allmyissues/${params.id}`
+//               ),
+//           },
+
+//           // { path: 'contribution', element: <ContributeCard /> },
+//           // {
+//           //   path: '/contribute',
+//           //   element:<ContributeCard></ContributeCard>
+//           // },
+
+//           {
+//             path: '/contributionss/:id',
+//             element: <ContributeCard />,
+//             loader: ({ params }) =>
+//               fetch(`https://community-clen.vercel.app/issue/${params.id}`),
+//           },
+
+//           // {
+//           //   path: '/contributionss/:id',
+//           //   element: <IssueDetails />,
+//           //   loader: ({ params }) =>
+//           //     fetch(`https://community-clen.vercel.app/allmyissues/${params.id}`),
+//           // },
+//           {
+//             path: '/allmyissues/:id',
+//             element: <ContributeCard />,
+//             loader: ({ params }) =>
+//               fetch(
+//                 `https://community-clen.vercel.app/allmyissues/${params.id}`
+//               ),
+//           },
+//         ],
+//       },
+//       {
+//         element: <PublicRoute />,
+//         children: [
+//           { path: 'signup', element: <SignUp /> },
+//           { path: 'signin', element: <SignIn /> },
+//         ],
+//       },
+//       { path: 'terms', element: <Terms /> },
+//       { path: 'privacy', element: <Privacy /> },
+//       { path: 'contact', element: <Contact /> },
+//       {
+//         path: '*',
+//         element: <NotFound />,
+//       },
+//     ],
+//   },
+// ]);
 import { createBrowserRouter } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 import Root from '../Root/Root';
-import { Suspense } from 'react';
-
-import Home from '../Pages/Home';
-import SignUp from '../Pages/SingUp'; // make sure the file name matches
-import SignIn from '../Pages/Singin';
-
-import AddIssue from '../Pages/AddIssue';
-// import MyIssues from '../Pages/MyIssues';
-import MyContribution from '../Pages/MyContribution';
-import PrivateRouter from './PriveteRouter'; // check file name
+import PrivateRouter from './PriveteRouter';
 import PublicRoute from './PublicRouter';
-import Terms from '../Pages/Terms';
-import Privacy from '../Pages/Privacyssss';
-import Contact from '../Pages/Contact';
-import IssueDetails from '../Pages/IssueDetails';
-import ContributeCard from '../Pages/ContributeCard';
-import AllIssues from '../Pages/AllIssuses';
-import MYIssues from '../Pages/MYIssues';
-import NotFound from '../Pages/NotFound';
+import Loading from '../Pages/Loding';
+
+
+// Lazy load all pages
+const Home = lazy(() => import('../Pages/Home'));
+const SignUp = lazy(() => import('../Pages/SingUp'));
+const SignIn = lazy(() => import('../Pages/Singin'));
+const AddIssue = lazy(() => import('../Pages/AddIssue'));
+const MyContribution = lazy(() => import('../Pages/MyContribution'));
+const Terms = lazy(() => import('../Pages/Terms'));
+const Privacy = lazy(() => import('../Pages/Privacyssss'));
+const Contact = lazy(() => import('../Pages/Contact'));
+const IssueDetails = lazy(() => import('../Pages/IssueDetails'));
+const ContributeCard = lazy(() => import('../Pages/ContributeCard'));
+const AllIssues = lazy(() => import('../Pages/AllIssuses'));
+const MYIssues = lazy(() => import('../Pages/MYIssues'));
+const NotFound = lazy(() => import('../Pages/NotFound'));
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +155,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading/>}>
             <Home />
           </Suspense>
         ),
@@ -39,86 +166,127 @@ export const router = createBrowserRouter([
         children: [
           {
             path: 'allissues',
-            element: <AllIssues />,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <AllIssues />
+              </Suspense>
+            ),
             loader: () => fetch('https://community-clen.vercel.app/issue'),
           },
-          { path: 'addissues', element: <AddIssue /> },
-          // {
-          //   path: 'myissues',
-          //   element: <MyIssues />,
-          //   loader: () => fetch('https://community-clen.vercel.app/allmyissues'),
-          // },
+          {
+            path: 'addissues',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <AddIssue />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'myissues',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <MYIssues />
+              </Suspense>
+            ),
+            loader: () =>
+              fetch('https://community-clen.vercel.app/allmyissues'),
+          },
           {
             path: 'contribution',
-            element: <MyContribution />,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <MyContribution />
+              </Suspense>
+            ),
             loader: () =>
               fetch('https://community-clen.vercel.app/contrbutessssssssssss'),
           },
           {
-            path: 'myissues',
-            element: <MYIssues />,
-            loader: () =>
-              fetch('https://community-clen.vercel.app/allmyissues'),
-          },
-
-          {
             path: '/issue/:id',
-            element: <IssueDetails />,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <IssueDetails />
+              </Suspense>
+            ),
             loader: ({ params }) =>
               fetch(`https://community-clen.vercel.app/issue/${params.id}`),
           },
-
           {
             path: '/allmyissues/:id',
-            element: <IssueDetails />,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <ContributeCard />
+              </Suspense>
+            ),
             loader: ({ params }) =>
               fetch(
                 `https://community-clen.vercel.app/allmyissues/${params.id}`
               ),
           },
-
-          // { path: 'contribution', element: <ContributeCard /> },
-          // {
-          //   path: '/contribute',
-          //   element:<ContributeCard></ContributeCard>
-          // },
-
           {
             path: '/contributionss/:id',
-            element: <ContributeCard />,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <ContributeCard />
+              </Suspense>
+            ),
             loader: ({ params }) =>
               fetch(`https://community-clen.vercel.app/issue/${params.id}`),
-          },
-
-          // {
-          //   path: '/contributionss/:id',
-          //   element: <IssueDetails />,
-          //   loader: ({ params }) =>
-          //     fetch(`https://community-clen.vercel.app/allmyissues/${params.id}`),
-          // },
-          {
-            path: '/allmyissues/:id',
-            element: <ContributeCard />,
-            loader: ({ params }) =>
-              fetch(
-                `https://community-clen.vercel.app/allmyissues/${params.id}`
-              ),
           },
         ],
       },
       {
         element: <PublicRoute />,
         children: [
-          { path: 'signup', element: <SignUp /> },
-          { path: 'signin', element: <SignIn /> },
+          {
+            path: 'signup',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <SignUp />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'signin',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <SignIn />
+              </Suspense>
+            ),
+          },
         ],
       },
-      { path: 'terms', element: <Terms /> },
-      { path: 'privacy', element: <Privacy /> },
-      { path: 'contact', element: <Contact /> },
+      {
+        path: 'terms',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Terms />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'privacy',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Privacy />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'contact',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Contact />
+          </Suspense>
+        ),
+      },
       {
         path: '*',
-        element: <NotFound />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <NotFound />
+          </Suspense>
+        ),
       },
     ],
   },

@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 const NotFound = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-green-100 to-green-300 px-4 text-center">
-      {/* Logo */}
+      
       <Helmet>
         <title>404 Error| Community Cleanliness</title>
       </Helmet>
@@ -17,14 +17,13 @@ const NotFound = () => {
         className="w-32 h-32 mb-8 animate-bounce"
       />
 
-      {/* 404 Image */}
       <img
         src="https://cdn-icons-png.flaticon.com/512/564/564619.png"
         alt="404 Not Found"
         className="w-64 h-64 mb-6"
       />
 
-      {/* Typewriter Text */}
+   
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
         <Typewriter
           words={[
@@ -41,14 +40,14 @@ const NotFound = () => {
         />
       </h1>
 
-      {/* Description */}
+   
       <p className="text-gray-700 mb-6 max-w-xl">
         The page you are looking for might have been removed, had its name
         changed, or is temporarily unavailable. Let’s get you back to our
         community updates!
       </p>
 
-      {/* Back Home Button */}
+    
       <Link
         to="/"
         className="inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition duration-300"

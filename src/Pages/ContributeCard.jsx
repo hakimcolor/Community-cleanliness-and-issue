@@ -110,7 +110,7 @@ const ContributeCard = () => {
             {issue.description}
           </p>
 
-          {/* Pay Contribution Button */}
+        
           <button
             onClick={() => {
               toast.info('Opening contribution form...', {
@@ -126,11 +126,11 @@ const ContributeCard = () => {
         </div>
       </div>
 
-      {/* Modal */}
+   
       {showModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-3">
           <div className="bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 rounded-2xl shadow-2xl relative animate-fadeIn">
-            {/* Close Button */}
+          
             <button
               onClick={() => {
                 toast.warn('Contribution form closed', {
@@ -172,7 +172,7 @@ const ContributeCard = () => {
               </div>
             </div>
 
-            {/* Contribution Form */}
+          
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-gray-700 font-medium mb-1 text-sm sm:text-base">
@@ -273,7 +273,7 @@ const ContributeCard = () => {
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
+        
               <button
                 type="submit"
                 className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 font-medium text-sm sm:text-base transition"

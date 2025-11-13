@@ -17,7 +17,7 @@ const ALLCARD = ({ allissues}) => {
                      hover:shadow-xl transition-all duration-300 flex flex-col h-full
                      bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70"
           >
-            {/* Image */}
+          
             <div className="w-full aspect-[16/9] overflow-hidden">
               <img
                 src={issue.image}
@@ -26,7 +26,7 @@ const ALLCARD = ({ allissues}) => {
               />
             </div>
 
-            {/* Content */}
+         
             <div className="p-4 flex flex-col flex-grow text-white">
               <div className="space-y-2 flex-grow">
                 <h3 className="text-lg sm:text-xl font-semibold">
@@ -46,7 +46,7 @@ const ALLCARD = ({ allissues}) => {
                 </p>
               </div>
 
-              {/* Button */}
+            
               <div className="mt-auto pt-3">
                 <Link
                   to={`/issue/${issue._id}`}
