@@ -2,6 +2,7 @@ import React from 'react';
 import HomeSlider from '../Componentes/HomeSlider';
 import { useLoaderData } from 'react-router-dom';
 import ALLCARD from './ALLCARD';
+import ExtraSection from './ExtraSection';
 
 const Home = () => {
   const latestdata = useLoaderData();
@@ -26,6 +27,7 @@ const Home = () => {
         {/* 🟩 Card Section */}
         <div className="max-w-[1400px] mx-auto mt-12">
           <ALLCARD allissues={latestdata} />
+          <ExtraSection/>
         </div>
       </div>
     </div>
