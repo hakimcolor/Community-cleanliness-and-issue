@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
+import { Helmet } from 'react-helmet';
 
 const ALLCARD = ({ allissues}) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6 pb-10">
+     
+        <title>Home | Community Cleanliness</title>
+ 
       {Array.isArray(allissues) &&
         allissues.map((issue) => (
           <div

@@ -10,6 +10,7 @@ import {
 import { auth } from '../Firebase/Firebase.confige';
 import { AuthContext } from '../Context/AuthContext';
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const provider = new GoogleAuthProvider();
 
@@ -95,6 +96,9 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-green-100 via-green-50 to-green-200 px-4 relative pt-20 pb-10">
+      <Helmet>
+        <title>Singup | Community Cleanliness</title>
+      </Helmet>
       <Toaster position="top-right" reverseOrder={false} />
 
       <div className="bg-[#2E8B57] shadow-2xl rounded-3xl p-10 w-full max-w-md border border-[#FFD700]">

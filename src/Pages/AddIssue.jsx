@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../Context/AuthContext';
 import { FiArrowRight } from 'react-icons/fi';
+import { Helmet } from 'react-helmet';
 
 const AddIssue = () => {
   const { user } = useContext(AuthContext);
@@ -51,6 +52,9 @@ const AddIssue = () => {
 
   return (
     <div className="max-w-md mx-auto mt-20 mb-1 rounded-xl overflow-hidden border border-[#FFD700]/70 shadow-xl bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70 p-6">
+      
+        <title>Addissue | Community Cleanliness</title>
+      
       <h2 className="text-3xl font-bold text-center mb-6 text-white">
         Report New Issue
       </h2>

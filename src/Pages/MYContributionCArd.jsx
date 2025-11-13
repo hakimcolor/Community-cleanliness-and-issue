@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const MYContributionCArd = ({ contribution }) => {
   // যদি contribution একটা array হয় (যেমন একাধিক ডোনেশন থাকে)
@@ -8,6 +9,9 @@ const MYContributionCArd = ({ contribution }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6 pb-10 px-4 sm:px-6">
+   
+        <title>Mycontribution | Community Cleanliness</title>
+
       {contributions.map((item, index) => (
         <div
           key={item._id || index}

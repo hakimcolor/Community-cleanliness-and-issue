@@ -1,8 +1,10 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const ExtraSection = () => {
   return (
     <div className="mt-20 px-4 md:px-8">
+    
       {/* 🟩 Community Stats Section */}
       <div className="max-w-[1200px] mx-auto text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-extrabold mb-6">

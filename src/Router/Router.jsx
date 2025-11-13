@@ -18,6 +18,7 @@ import IssueDetails from '../Pages/IssueDetails';
 import ContributeCard from '../Pages/ContributeCard';
 import AllIssues from '../Pages/AllIssuses';
 import MYIssues from '../Pages/MYIssues';
+import NotFound from '../Pages/NotFound';
 
 
 
@@ -111,6 +112,10 @@ export const router = createBrowserRouter([
       { path: 'terms', element: <Terms /> },
       { path: 'privacy', element: <Privacy /> },
       { path: 'contact', element: <Contact /> },
+      {
+        path: '*',
+        element: <NotFound />,
+      },
     ],
   },
 ]);

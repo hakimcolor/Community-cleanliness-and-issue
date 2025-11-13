@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Terms = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-black dark:text-gray-400">
+      <Helmet>
+        <title>Trems | Community Cleanliness</title>
+      </Helmet>
       <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-green-700 dark:text-green-400 text-center sm:text-left">
         Terms & Conditions
       </h1>

@@ -273,6 +273,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const MYIssues = () => {
   const allissues = useLoaderData();
@@ -369,6 +370,9 @@ const MYIssues = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-20 p-4">
+     
+        <title>Myissues| Community Cleanliness</title>
+      
       <h2 className="text-2xl font-semibold text-center mb-5">
         My Submitted Issues
       </h2>

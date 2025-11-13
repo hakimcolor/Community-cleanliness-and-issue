@@ -192,52 +192,39 @@
 // }
 
 import React from 'react';
-import { Link } from 'react-router-dom'; // ✅ যোগ করো
-
+import { Link, NavLink } from 'react-router-dom'; // ✅ যোগ করো
+import logo from '../assets/Logo.png';
+import { Helmet } from 'react-helmet';
 export default function Footer({
   siteName = 'CleanCity',
-  description,
+  
   links = [],
 }) {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-50 dark:bg-gray-900  text-gray-800 dark:text-gray-200">
+      
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
-          <div className="space-y-4">
-            {/* ✅ এখানে <a> এর জায়গায় <Link> */}
-            <Link to="/" className="flex items-center gap-3">
-              <svg
-                className="w-10 h-10 rounded-full p-1 bg-green-600 text-white flex-shrink-0"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M7.5 12.5L10 15l6-8.5"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-xl font-semibold tracking-tight">
-                {siteName}
-              </span>
-            </Link>
-
-            <p className="text-sm leading-relaxed">
-              {description ??
-                'A smart, community-driven cleanliness and issue reporting platform...'}
-            </p>
-          </div>
+          <NavLink
+            to="/"
+            className="flex items-center gap-2 animate__animated animate__slideInDown"
+          >
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-16 h-16 rounded-full animate__animated animate__bounceIn"
+            />
+            <span className="hidden sm:flex text-2xl font-bold">
+              <span className="text-red-500">C</span>
+              <span className="text-orange-500">C</span>
+              <span className="text-yellow-400">I</span>
+              <span className="text-green-300">R</span>
+              <span className="text-blue-200 ">P</span>
+            </span>
+          </NavLink>
 
           {/* Useful Links */}
           <div>

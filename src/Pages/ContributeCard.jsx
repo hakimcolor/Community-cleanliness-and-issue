@@ -17,6 +17,7 @@ import React, { useState, useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { X, Calendar, Tag, MapPin, DollarSign } from 'lucide-react';
 import { AuthContext } from '../Context/AuthContext';
+import { Helmet } from 'react-helmet';
  // ✅ তোমার Auth Context import করো
 
 const ContributeCard = () => {
@@ -79,6 +80,9 @@ const ContributeCard = () => {
 
   return (
     <div className="p-4 sm:p-6">
+      <Helmet>
+        <title>Contributecard | Community Cleanliness</title>
+      </Helmet>
       {/* ====== Issue Info Card ====== */}
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden transition hover:shadow-2xl">
         <img
@@ -231,7 +235,6 @@ const ContributeCard = () => {
                 <input
                   type="text"
                   name="address"
-                  
                   value={formData.address}
                   onChange={handleChange}
                   placeholder="Enter your address"
