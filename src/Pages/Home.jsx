@@ -1,26 +1,29 @@
 import React from 'react';
 import HomeSlider from '../Componentes/HomeSlider';
+import { useLoaderData } from 'react-router-dom';
+import ALLCARD from './ALLCARD';
 
 const Home = () => {
- 
-
+  const latestdata = useLoaderData();
+  console.log(latestdata);
 
   return (
-    <div className="bg-gradient-to-b from-blue-100 via-blue-50 to-white min-h-screen pt-5">
+    <div className="pt-5">
       <HomeSlider />
 
-      <div className="text-center mt-12 mb-10">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-blue-700 mb-3">
-          Our Popular Services
-        </h1>
-        <p className="text-gray-600 text-lg">
-          Here are some of our most requested pet care services this winter.
-        </p>
+      <div className=" mt-12 mb-10">
+        <div className='text-center'><h1 className="text-3xl md:text-4xl font-extrabold mb-3">
+          Latest Six Posts Here
+        </h1></div>
+        
+        
+        <div className="max-w-[1400px] mx-auto px-4  mt-20">
+         
+</div>
+          <ALLCARD allissues={latestdata} />
+        </div>
       </div>
-
-  
-     
-    </div>
+    
   );
 };
 

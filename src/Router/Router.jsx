@@ -7,7 +7,7 @@ import SignUp from '../Pages/SingUp'; // make sure the file name matches
 import SignIn from '../Pages/Singin';
 
 import AddIssue from '../Pages/AddIssue';
-import MyIssues from '../Pages/MyIssues';
+// import MyIssues from '../Pages/MyIssues';
 import MyContribution from '../Pages/MyContribution';
 import PrivateRouter from './PriveteRouter'; // check file name
 import PublicRoute from './PublicRouter';
@@ -17,7 +17,9 @@ import Contact from '../Pages/Contact';
 import IssueDetails from '../Pages/IssueDetails';
 import ContributeCard from '../Pages/ContributeCard';
 import AllIssues from '../Pages/AllIssuses';
-import IssueDetails2222 from '../Pages/IssueDetails2222';
+import MYIssues from '../Pages/MYIssues';
+
+
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,7 @@ export const router = createBrowserRouter([
             <Home />
           </Suspense>
         ),
+        loader: () => fetch('http://localhost:3000/latest-data'),
       },
       {
         element: <PrivateRouter />,
@@ -41,15 +44,20 @@ export const router = createBrowserRouter([
             loader: () => fetch('http://localhost:3000/issue'),
           },
           { path: 'addissues', element: <AddIssue /> },
-          {
-            path: 'myissues',
-            element: <MyIssues />,
-            loader: () => fetch('http://localhost:3000/allmyissues'),
-          },
+          // {
+          //   path: 'myissues',
+          //   element: <MyIssues />,
+          //   loader: () => fetch('http://localhost:3000/allmyissues'),
+          // },
           {
             path: 'contribution',
             element: <MyContribution />,
             loader: () => fetch('http://localhost:3000/contrbutessssssssssss'),
+          },
+          {
+            path: 'myissues',
+            element: <MYIssues />,
+            loader: () => fetch('http://localhost:3000/allmyissues'),
           },
 
           {
@@ -58,12 +66,14 @@ export const router = createBrowserRouter([
             loader: ({ params }) =>
               fetch(`http://localhost:3000/issue/${params.id}`),
           },
+
           {
-            path: '/myissues/:id',
-            element: <IssueDetails2222 />,
+            path: '/allmyissues/:id',
+            element: <IssueDetails />,
             loader: ({ params }) =>
               fetch(`http://localhost:3000/allmyissues/${params.id}`),
           },
+
           // { path: 'contribution', element: <ContributeCard /> },
           // {
           //   path: '/contribute',
@@ -75,6 +85,19 @@ export const router = createBrowserRouter([
             element: <ContributeCard />,
             loader: ({ params }) =>
               fetch(`http://localhost:3000/issue/${params.id}`),
+          },
+
+          // {
+          //   path: '/contributionss/:id',
+          //   element: <IssueDetails />,
+          //   loader: ({ params }) =>
+          //     fetch(`http://localhost:3000/allmyissues/${params.id}`),
+          // },
+          {
+            path: '/allmyissues/:id',
+            element: <ContributeCard />,
+            loader: ({ params }) =>
+              fetch(`http://localhost:3000/allmyissues/${params.id}`),
           },
         ],
       },

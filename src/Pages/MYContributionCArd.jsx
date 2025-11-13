@@ -38,7 +38,9 @@ const MYContributionCArd = ({ contribution }) => {
           <div className="px-4 py-3 mt-auto border-t border-[#FFD700]/40 bg-white/10 backdrop-blur-md">
             <div className="flex items-center justify-between">
               <span className="text-[#FFD700] font-medium">Amount:</span>
-              <span className="text-lg font-semibold text-black">${item.amount}</span>
+              <span className="text-lg font-semibold text-black">
+                ${item.amount}
+              </span>
             </div>
             <div className="text-xs text-black mt-1">
               Date: {item.date || 'N/A'}

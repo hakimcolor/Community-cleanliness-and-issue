@@ -6,44 +6,51 @@ import { FiArrowRight } from 'react-icons/fi';
 const AddIssue = () => {
   const { user } = useContext(AuthContext);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+   e.preventDefault();
 
-    const formData = {
-      title: e.target.title.value.trim(),
-      category: e.target.category.value,
-      location: e.target.location.value.trim(),
-      description: e.target.description.value.trim(),
-      image: e.target.image.value.trim(),
-      amount: parseFloat(e.target.amount.value),
-      status: 'ongoing',
-      date: new Date().toISOString(),
-      email: user.email,
-    };
+   const formData = {
+     title: e.target.title.value.trim(),
+     category: e.target.category.value,
+     location: e.target.location.value.trim(),
+     description: e.target.description.value.trim(),
+     image: e.target.image.value.trim(),
+     amount: parseFloat(e.target.amount.value),
+     status: 'ongoing',
+     date: new Date().toISOString(),
+     email: user.email,
+   };
 
-    try {
-      // শুধুমাত্র myissue তে ডাটা যাবে
-      const res = await fetch('http://localhost:3000/myissue', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+   try {
+     // ১️⃣ প্রথমে MyIssues এ পাঠাও
+     const res1 = await fetch('http://localhost:3000/myissue', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify(formData),
+     });
 
-      if (!res.ok) throw new Error('Failed to add issue');
+     if (!res1.ok) throw new Error('Failed to add issue in MyIssues');
 
-      const data = await res.json();
-      console.log('Response:', data);
+     // ২️⃣ তারপর Main Issue কালেকশনেও পাঠাও
+     const res2 = await fetch('http://localhost:3000/issue', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify(formData),
+     });
 
-      toast.success('Issue added successfully to My Issues!');
-      e.target.reset();
-    } catch (err) {
-      console.error(err);
-      toast.error('Failed to add issue. Please try again.');
-    }
-  };
+     if (!res2.ok) throw new Error('Failed to add issue in All Issues');
+
+     toast.success('Issue added successfully in both collections!');
+     e.target.reset();
+   } catch (err) {
+     console.error(err);
+     toast.error('Failed to add issue. Please try again.');
+   }
+ };
+
 
   return (
-    <div className="max-w-md mx-auto mt-12 rounded-xl overflow-hidden border border-[#FFD700]/70 shadow-xl bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70 p-6">
+    <div className="max-w-md mx-auto mt-20 mb-1 rounded-xl overflow-hidden border border-[#FFD700]/70 shadow-xl bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70 p-6">
       <h2 className="text-3xl font-bold text-center mb-6 text-white">
         Report New Issue
       </h2>
