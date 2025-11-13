@@ -20,8 +20,6 @@ import AllIssues from '../Pages/AllIssuses';
 import MYIssues from '../Pages/MYIssues';
 import NotFound from '../Pages/NotFound';
 
-
-
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -34,7 +32,7 @@ export const router = createBrowserRouter([
             <Home />
           </Suspense>
         ),
-        loader: () => fetch('http://localhost:3000/latest-data'),
+        loader: () => fetch('https://community-clen.vercel.app/latest-data'),
       },
       {
         element: <PrivateRouter />,
@@ -42,37 +40,41 @@ export const router = createBrowserRouter([
           {
             path: 'allissues',
             element: <AllIssues />,
-            loader: () => fetch('http://localhost:3000/issue'),
+            loader: () => fetch('https://community-clen.vercel.app/issue'),
           },
           { path: 'addissues', element: <AddIssue /> },
           // {
           //   path: 'myissues',
           //   element: <MyIssues />,
-          //   loader: () => fetch('http://localhost:3000/allmyissues'),
+          //   loader: () => fetch('https://community-clen.vercel.app/allmyissues'),
           // },
           {
             path: 'contribution',
             element: <MyContribution />,
-            loader: () => fetch('http://localhost:3000/contrbutessssssssssss'),
+            loader: () =>
+              fetch('https://community-clen.vercel.app/contrbutessssssssssss'),
           },
           {
             path: 'myissues',
             element: <MYIssues />,
-            loader: () => fetch('http://localhost:3000/allmyissues'),
+            loader: () =>
+              fetch('https://community-clen.vercel.app/allmyissues'),
           },
 
           {
             path: '/issue/:id',
             element: <IssueDetails />,
             loader: ({ params }) =>
-              fetch(`http://localhost:3000/issue/${params.id}`),
+              fetch(`https://community-clen.vercel.app/issue/${params.id}`),
           },
 
           {
             path: '/allmyissues/:id',
             element: <IssueDetails />,
             loader: ({ params }) =>
-              fetch(`http://localhost:3000/allmyissues/${params.id}`),
+              fetch(
+                `https://community-clen.vercel.app/allmyissues/${params.id}`
+              ),
           },
 
           // { path: 'contribution', element: <ContributeCard /> },
@@ -85,20 +87,22 @@ export const router = createBrowserRouter([
             path: '/contributionss/:id',
             element: <ContributeCard />,
             loader: ({ params }) =>
-              fetch(`http://localhost:3000/issue/${params.id}`),
+              fetch(`https://community-clen.vercel.app/issue/${params.id}`),
           },
 
           // {
           //   path: '/contributionss/:id',
           //   element: <IssueDetails />,
           //   loader: ({ params }) =>
-          //     fetch(`http://localhost:3000/allmyissues/${params.id}`),
+          //     fetch(`https://community-clen.vercel.app/allmyissues/${params.id}`),
           // },
           {
             path: '/allmyissues/:id',
             element: <ContributeCard />,
             loader: ({ params }) =>
-              fetch(`http://localhost:3000/allmyissues/${params.id}`),
+              fetch(
+                `https://community-clen.vercel.app/allmyissues/${params.id}`
+              ),
           },
         ],
       },

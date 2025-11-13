@@ -42,11 +42,14 @@ const ContributeCard = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/contributions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(contributionData),
-      });
+      const res = await fetch(
+        'https://community-clen.vercel.app/contributions',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(contributionData),
+        }
+      );
 
       const data = await res.json();
       if (data.insertedId) {
@@ -74,7 +77,9 @@ const ContributeCard = () => {
     <div className="p-4 sm:p-6 mt-13">
       <title>ContributeCard | Community Cleanliness</title>
 
-      <div className="max-w-3xl mx-auto text-center text-3xl font-bold pb-5">Pay Cleanup Contribution</div>
+      <div className="max-w-3xl mx-auto text-center text-3xl font-bold pb-5">
+        Pay Cleanup Contribution
+      </div>
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden transition hover:shadow-2xl">
         <img
           src={issue.image}

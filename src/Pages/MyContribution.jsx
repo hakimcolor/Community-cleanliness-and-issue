@@ -38,7 +38,7 @@ const MyContribution = () => {
       <Helmet>
         <title>Mycontribuition | Community Cleanliness</title>
       </Helmet>
-      <h1 className="text-2xl font-bold text-green-700 mb-6 text-center">
+      <h1 className="text-2xl font-bold text-center">
         All My Contributions
       </h1>
 

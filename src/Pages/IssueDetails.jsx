@@ -1,38 +1,9 @@
-// // IssueDetails.jsx
-// import React from 'react';
-// import { useLoaderData } from 'react-router-dom';
-
-// const IssueDetails = () => {
-//   const issue = useLoaderData(); // loader থেকে আসা data
-// console.log(issue);
-
-//   return (
-//     <div className="max-w-3xl mx-auto p-6 mt-10">
-//       <h1 className="text-2xl font-bold mb-4">{issue.title}</h1>
-//       <img
-//         src={issue.image}
-//         alt={issue.title}
-//         className="w-full h-64 object-cover mb-4"
-//       />
-//       <p>
-//         <strong>Category:</strong> {issue.category}
-//       </p>
-//       <p>
-//         <strong>Location:</strong> {issue.location}
-//       </p>
-//       <p>
-//         <strong>Amount:</strong> ${issue.amount}
-//       </p>
-//       <p className="mt-4">{issue.description}</p>
-//     </div>
-//   );
-// };
-
-// export default IssueDetails;
 import React from 'react';
 import { NavLink, useLoaderData } from 'react-router-dom';
 import { Calendar, MapPin, Tag, DollarSign } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const IssueDetails = () => {
   const issue = useLoaderData();
@@ -46,16 +17,14 @@ const IssueDetails = () => {
   }
 
   return (
-    <div className="min-h-screen py-5 mt-14  px-6">
-      
-        <title>IssueDetails| Community Cleanliness</title>
-     
-      <div className="flex items-center justify-center text-4xl font-bold text-center mb-10 text-gray-900 ">
+    <div className="min-h-screen py-5 mt-14 px-6">
+      <title>IssueDetails| Community Cleanliness</title>
+
+      <div className="flex items-center justify-center text-4xl font-bold text-center mb-10 text-gray-900">
         your card details!
       </div>
 
       <div className="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl shadow-xl rounded-2xl overflow-hidden border border-yellow-200 dark:border-gray-700">
-        {/* Image */}
         <div className="relative">
           <img
             src={issue.image}
@@ -69,7 +38,6 @@ const IssueDetails = () => {
           </div>
         </div>
 
-        {/* Details */}
         <div className="p-8 text-gray-800 dark:text-gray-200 space-y-5">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-2 text-sm">
@@ -115,15 +83,17 @@ const IssueDetails = () => {
               {issue.description}
             </p>
           </div>
+
           <NavLink to={`/contributionss/${issue._id}`}>
-            {' '}
             <div className="pt-6 flex justify-center">
               <button
-                className="px-6 py-3 text-lg font-semibold text-white rounded-full 
-              bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 
-              hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 
-              transition-all duration-300 shadow-lg hover:shadow-2xl"
-                onClick={() => alert('Thank you for your contribution!')}
+                className="border border-[#FFD700] text-white px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300 cursor-pointer text-2xl font-bold"
+                onClick={() =>
+                  toast.success('Thank you for your contribution!', {
+                    position: 'top-right',
+                    autoClose: 3000,
+                  })
+                }
               >
                 💰 Contribute Now
               </button>
@@ -131,6 +101,8 @@ const IssueDetails = () => {
           </NavLink>
         </div>
       </div>
+
+    
     </div>
   );
 };

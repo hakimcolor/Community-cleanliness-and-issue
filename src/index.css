@@ -1,1 +1,20 @@
 @import 'tailwindcss';
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --header-bg: #2e8b57;
+  --header-text: #ffffff;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1f1f1f;
+  --text-color: #ffffff;
+  --header-bg: #111827;
+  --header-text: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
