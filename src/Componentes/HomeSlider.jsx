@@ -187,7 +187,7 @@ const TipsSlider = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto my-16 px-4 bg-gradient-to-b from-green-100 via-green-50 to-white py-12 rounded-3xl shadow-lg">
+    <div className="max-w-7xl mx-auto my-16 px-4 bg-gradient-to-b from-green-100 via-green-50 to-white py-5 mt-[-2px] rounded-3xl shadow-lg">
       <h2 className="text-4xl font-extrabold text-center mb-10 text-green-700 drop-shadow-sm">
         🧹 Community Cleanup Highlights
       </h2>

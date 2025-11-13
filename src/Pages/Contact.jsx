@@ -12,9 +12,9 @@ import {
 const Contact = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <Helmet>
+     
         <title>Contact | Community Cleanliness</title>
-      </Helmet>
+  
       <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 dark:text-indigo-400 mb-8 text-center">
         Contact Us
       </h1>

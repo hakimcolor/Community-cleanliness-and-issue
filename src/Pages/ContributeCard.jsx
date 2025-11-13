@@ -1,33 +1,19 @@
-// import React from 'react'
-// import { useLoaderData } from 'react-router';
-
-// const ContributeCard = () => {
-//   const issue = useLoaderData();
-//   console.log('lksdlsksksldsldskldksdksd',issue);
-  
-//   return (
-//     <div>
-//       sds
-//     </div>
-//   )
-// }
-
-// export default ContributeCard
 import React, { useState, useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { X, Calendar, Tag, MapPin, DollarSign } from 'lucide-react';
 import { AuthContext } from '../Context/AuthContext';
 import { Helmet } from 'react-helmet';
- // ✅ তোমার Auth Context import করো
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContributeCard = () => {
   const issue = useLoaderData();
-  const { user } = useContext(AuthContext); // ✅ logged-in user data
+  const { user } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
 
   const [formData, setFormData] = useState({
     contributorName: '',
-    email: user?.email || '', // ✅ logged-in user's email
+    email: user?.email || '',
     phone: '',
     address: '',
     amount: issue.amount || '',
@@ -41,49 +27,54 @@ const ContributeCard = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-   const contributionData = {
-     issueTitle: issue.title,
-     amount: formData.amount,
-     contributorName: formData.contributorName,
-     email: formData.email,
-     phone: formData.phone,
-     address: formData.address,
-     date: today,
-     additionalInfo: formData.additionalInfo,
-   };
+    const contributionData = {
+      issueTitle: issue.title,
+      amount: formData.amount,
+      contributorName: formData.contributorName,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      date: today,
+      additionalInfo: formData.additionalInfo,
+    };
 
-   try {
-     const res = await fetch('http://localhost:3000/contributions', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-       },
-       body: JSON.stringify(contributionData),
-     });
+    try {
+      const res = await fetch('http://localhost:3000/contributions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(contributionData),
+      });
 
-     const data = await res.json();
-     if (data.insertedId) {
-       alert('✅ Contribution saved successfully!');
-       setShowModal(false);
-     } else {
-       alert('❌ Failed to save contribution');
-     }
-   } catch (error) {
-     console.error(error);
-     alert('Server error occurred');
-   }
- };
-
+      const data = await res.json();
+      if (data.insertedId) {
+        toast.success('Contribution saved successfully!', {
+          position: 'top-right',
+          autoClose: 3000,
+        });
+        setShowModal(false);
+      } else {
+        toast.error('Failed to save contribution', {
+          position: 'top-right',
+          autoClose: 3000,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Server error occurred', {
+        position: 'top-right',
+        autoClose: 3000,
+      });
+    }
+  };
 
   return (
-    <div className="p-4 sm:p-6">
-      <Helmet>
-        <title>Contributecard | Community Cleanliness</title>
-      </Helmet>
-      {/* ====== Issue Info Card ====== */}
+    <div className="p-4 sm:p-6 mt-13">
+      <title>ContributeCard | Community Cleanliness</title>
+
+      <div className="max-w-3xl mx-auto text-center text-3xl font-bold pb-5">Pay Cleanup Contribution</div>
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden transition hover:shadow-2xl">
         <img
           src={issue.image}
@@ -114,8 +105,15 @@ const ContributeCard = () => {
             {issue.description}
           </p>
 
+          {/* Pay Contribution Button */}
           <button
-            onClick={() => setShowModal(true)}
+            onClick={() => {
+              toast.info('Opening contribution form...', {
+                position: 'top-right',
+                autoClose: 2000,
+              });
+              setShowModal(true);
+            }}
             className="bg-green-600 text-white w-full sm:w-auto px-5 py-2 rounded-lg font-medium hover:bg-green-700 transition"
           >
             Pay Clean-Up Contribution
@@ -123,19 +121,24 @@ const ContributeCard = () => {
         </div>
       </div>
 
-      {/* ====== Modal ====== */}
+      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-3">
           <div className="bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 rounded-2xl shadow-2xl relative animate-fadeIn">
             {/* Close Button */}
             <button
-              onClick={() => setShowModal(false)}
+              onClick={() => {
+                toast.warn('Contribution form closed', {
+                  position: 'top-right',
+                  autoClose: 2000,
+                });
+                setShowModal(false);
+              }}
               className="absolute top-3 right-3 text-gray-500 hover:text-red-600"
             >
               <X size={22} />
             </button>
 
-            {/* Header */}
             <div className="text-center mb-5">
               <h2 className="text-xl sm:text-2xl font-semibold text-green-700">
                 Pay Contribution
@@ -145,7 +148,6 @@ const ContributeCard = () => {
               </p>
             </div>
 
-            {/* Issue Summary */}
             <div className="border rounded-lg p-3 sm:p-4 mb-5 bg-gray-50 flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4">
               <img
                 src={issue.image}
@@ -165,7 +167,7 @@ const ContributeCard = () => {
               </div>
             </div>
 
-            {/* Form */}
+            {/* Contribution Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-gray-700 font-medium mb-1 text-sm sm:text-base">
@@ -197,7 +199,6 @@ const ContributeCard = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* ✅ Email auto-filled from user */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-1 text-sm sm:text-base">
                     Email
@@ -227,7 +228,6 @@ const ContributeCard = () => {
                 </div>
               </div>
 
-              {/* Address */}
               <div>
                 <label className="block text-gray-700 font-medium mb-1 text-sm sm:text-base">
                   Address
@@ -243,7 +243,6 @@ const ContributeCard = () => {
                 />
               </div>
 
-              {/* Date */}
               <div>
                 <label className="block text-gray-700 font-medium mb-1 text-sm sm:text-base">
                   Date
@@ -256,7 +255,6 @@ const ContributeCard = () => {
                 />
               </div>
 
-              {/* Additional Info */}
               <div>
                 <label className="block text-gray-700 font-medium mb-1 text-sm sm:text-base">
                   Additional Info (optional)
@@ -281,9 +279,10 @@ const ContributeCard = () => {
           </div>
         </div>
       )}
+
+      <ToastContainer />
     </div>
   );
 };
 
 export default ContributeCard;
-

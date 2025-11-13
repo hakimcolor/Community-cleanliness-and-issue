@@ -47,9 +47,9 @@ const IssueDetails = () => {
 
   return (
     <div className="min-h-screen py-5 mt-14  px-6">
-      <Helmet>
+      
         <title>IssueDetails| Community Cleanliness</title>
-      </Helmet>
+     
       <div className="flex items-center justify-center text-4xl font-bold text-center mb-10 text-gray-900 ">
         your card details!
       </div>

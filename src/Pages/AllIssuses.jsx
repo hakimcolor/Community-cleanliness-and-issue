@@ -8,9 +8,9 @@ const AllIssues = () => {
   console.log(allissue);
 
   return (
-    <div className="max-w-[1400px] mx-auto px-4  mt-20">
+    <div className="max-w-[1400px] mx-auto px-4  mt-20 ">
      
-        <title> allissuses | Community Cleanliness</title>
+        <title> allissues | Community Cleanliness</title>
      
       <h2 className="text-3xl font-bold text-center mb-8">All Issues</h2>
 
