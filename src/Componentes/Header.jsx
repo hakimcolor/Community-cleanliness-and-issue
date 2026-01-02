@@ -1,4 +1,3 @@
-
 import React, { useContext, useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiLogOut, FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
@@ -15,7 +14,6 @@ const Header = () => {
   );
   const navigate = useNavigate();
 
-  
   useEffect(() => {
     document.documentElement.setAttribute(
       'data-theme',
@@ -81,7 +79,6 @@ const Header = () => {
       <Toaster position="top-right" />
 
       <div className="flex justify-between items-center p-4 max-w-7xl mx-auto">
-      
         <NavLink to="/" className="flex items-center gap-2">
           <img src={logo} alt="Logo" className="w-16 h-16 rounded-full" />
           <span className="hidden sm:flex text-2xl font-bold">
@@ -93,7 +90,6 @@ const Header = () => {
           </span>
         </NavLink>
 
-     
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <NavLink
@@ -111,7 +107,6 @@ const Header = () => {
             </NavLink>
           ))}
 
-         
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="ml-4 p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition"
@@ -145,7 +140,6 @@ const Header = () => {
           )}
         </nav>
 
-     
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-2xl text-white"
@@ -193,7 +187,7 @@ const Header = () => {
               </button>
             ) : (
               <NavLink to="/signup" onClick={() => setIsOpen(false)}>
-                <button className="px-4 py-1 border border-[#FFD700] rounded-full text-white hover:bg-[#FFD700] hover:text-[#2E8B57] transition">
+                <button className="px-4 py-1 border border-[#FFD700] rounded-full text-white hover:bg-[#FFD700] hover:text-[#2E8B57] transition cursor-pointer">
                   Sign Up
                 </button>
               </NavLink>

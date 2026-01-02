@@ -4,10 +4,8 @@ import { Helmet } from 'react-helmet';
 const ExtraSection = () => {
   return (
     <div className="mt-20 px-4 md:px-8">
-    
-      
       <div className="max-w-[1200px] mx-auto text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-6  text-blue-600 dark:text-blue-400">
           Our Community Impact
         </h2>
         <p className="text-gray-600 mb-10">
@@ -30,7 +28,6 @@ const ExtraSection = () => {
         </div>
       </div>
 
-    
       <div className="bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl py-16 px-8 text-center text-white shadow-lg">
         <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
           Join Our Clean Drive!

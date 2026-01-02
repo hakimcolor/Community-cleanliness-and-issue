@@ -9,10 +9,11 @@ const AllIssues = () => {
 
   return (
     <div className="max-w-[1400px] mx-auto px-4  mt-20 ">
-     
-        <title> allissues | Community Cleanliness</title>
-     
-      <h2 className="text-3xl font-bold text-center mb-8">All Issues</h2>
+      <title> allissues | Community Cleanliness</title>
+
+      <h2 className="text-3xl font-semibold text-center mb-6 text-blue-600 dark:text-blue-400">
+        All Issues
+      </h2>
 
       <ALLCARD allissues={allissue} />
     </div>

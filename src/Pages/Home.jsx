@@ -25,12 +25,12 @@ const Home = () => {
         <title>Home | Community Cleanliness</title>
       </Helmet>
 
-   
       <HomeSlider />
 
- 
       <div className="mt-12 px-4 max-w-[1200px] mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Categories</h2>
+        <h2 className="text-4xl  text-center mb-6 text-blue-600 dark:text-blue-400 font-bold">
+          Categories
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {categories.map((cat, index) => (
             <div
@@ -44,10 +44,9 @@ const Home = () => {
         </div>
       </div>
 
-
       <div className="mt-16 mb-10 px-4">
         <div className="text-center">
-          <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
+          <h1 className="text-4xl  text-center mb-6 text-blue-600 dark:text-blue-400 font-bold">
             <Typewriter
               words={[
                 'Latest Six Posts Here',
@@ -67,7 +66,6 @@ const Home = () => {
           </p>
         </div>
 
-  
         <div className="max-w-[1400px] mx-auto mt-12">
           <ALLCARD allissues={latestdata} />
           <ExtraSection />

@@ -19,7 +19,7 @@ const MyContribution = () => {
       <Helmet>
         <title>Mycontribuition | Community Cleanliness</title>
       </Helmet>
-      <h1 className="text-2xl font-bold text-center">
+      <h1 className="text-3xl font-semibold text-center mb-6 text-blue-600 dark:text-blue-400">
         All My Contributions
       </h1>
 
