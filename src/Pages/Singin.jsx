@@ -163,7 +163,7 @@ const SignIn = () => {
           className="w-full flex items-center justify-center gap-3 border border-[#FFD700] py-3 rounded-xl text-white hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300"
         >
           <FcGoogle className="w-7 h-7" />
-          <span className="font-medium">Continue with Google</span>
+          <span className="font-medium cursor-pointer">Continue with Google</span>
         </button>
 
         <p className="text-sm text-center text-white mt-6">

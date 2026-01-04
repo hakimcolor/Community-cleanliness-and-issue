@@ -1,11 +1,9 @@
-
 import { createBrowserRouter } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Root from '../Root/Root';
 import PrivateRouter from './PriveteRouter';
 import PublicRoute from './PublicRouter';
 import Loading from '../Pages/Loding';
-
 
 // Lazy load all pages
 const Home = lazy(() => import('../Pages/Home'));
@@ -30,29 +28,26 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Home />
           </Suspense>
         ),
         loader: () => fetch('https://community-clen.vercel.app/latest-data'),
       },
 
-
-{
-            path: 'allissues',
-            element: (
-              <Suspense fallback={<Loading />}>
-                <AllIssues />
-              </Suspense>
-            ),
-            loader: () => fetch('https://community-clen.vercel.app/issue'),
-          },
-
+      {
+        path: 'allissues',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <AllIssues />
+          </Suspense>
+        ),
+        loader: () => fetch('https://community-clen.vercel.app/issue'),
+      },
 
       {
         element: <PrivateRouter />,
         children: [
-          
           {
             path: 'addissues',
             element: (
@@ -81,16 +76,16 @@ export const router = createBrowserRouter([
             loader: () =>
               fetch('https://community-clen.vercel.app/contrbutessssssssssss'),
           },
-          {
-            path: '/issue/:id',
-            element: (
-              <Suspense fallback={<Loading />}>
-                <IssueDetails />
-              </Suspense>
-            ),
-            loader: ({ params }) =>
-              fetch(`https://community-clen.vercel.app/issue/${params.id}`),
-          },
+          // {
+          //   path: '/issue/:id',
+          //   element: (
+          //     <Suspense fallback={<Loading />}>
+          //       <IssueDetails />
+          //     </Suspense>
+          //   ),
+          //   loader: ({ params }) =>
+          //     fetch(`https://community-clen.vercel.app/issue/${params.id}`),
+          // },
           {
             path: '/allmyissues/:id',
             element: (
@@ -133,6 +128,16 @@ export const router = createBrowserRouter([
                 <SignIn />
               </Suspense>
             ),
+          },
+          {
+            path: '/issue/:id',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <IssueDetails />
+              </Suspense>
+            ),
+            loader: ({ params }) =>
+              fetch(`https://community-clen.vercel.app/issue/${params.id}`),
           },
         ],
       },

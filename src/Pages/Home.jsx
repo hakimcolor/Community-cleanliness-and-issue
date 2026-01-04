@@ -6,12 +6,13 @@ import ALLCARD from './ALLCARD';
 import ExtraSection from './ExtraSection';
 import { Typewriter } from 'react-simple-typewriter';
 import { Helmet } from 'react-helmet';
-
+import FAQsection from './FAQsection';
+import SlideOnScroll from './SlideOnScroll'; 
 const Home = () => {
   const latestdata = useLoaderData();
   console.log(latestdata);
 
-  // 4 category cards data
+ 
   const categories = [
     { title: 'Garbage', icon: '🗑️', bgColor: 'bg-green-500' },
     { title: 'Illegal Construction', icon: '🏗️', bgColor: 'bg-blue-500' },
@@ -25,10 +26,12 @@ const Home = () => {
         <title>Home | Community Cleanliness</title>
       </Helmet>
 
+ 
       <HomeSlider />
 
+  
       <div className="mt-12 px-4 max-w-[1200px] mx-auto">
-        <h2 className="text-4xl  text-center mb-6 text-blue-600 dark:text-blue-400 font-bold">
+        <h2 className="text-4xl text-center mb-6 text-blue-600 dark:text-blue-400 font-bold">
           Categories
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -46,7 +49,7 @@ const Home = () => {
 
       <div className="mt-16 mb-10 px-4">
         <div className="text-center">
-          <h1 className="text-4xl  text-center mb-6 text-blue-600 dark:text-blue-400 font-bold">
+          <h1 className="text-4xl text-center mb-6 text-blue-600 dark:text-blue-400 font-bold">
             <Typewriter
               words={[
                 'Latest Six Posts Here',
@@ -66,9 +69,19 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="max-w-[1400px] mx-auto mt-12">
-          <ALLCARD allissues={latestdata} />
-          <ExtraSection />
+   
+        <div className="max-w-[1400px] mx-auto mt-12 space-y-12">
+          <SlideOnScroll>
+            <ALLCARD allissues={latestdata} />
+          </SlideOnScroll>
+
+          <SlideOnScroll>
+            <ExtraSection />
+          </SlideOnScroll>
+
+          <SlideOnScroll>
+            <FAQsection />
+          </SlideOnScroll>
         </div>
       </div>
     </div>
