@@ -26,9 +26,13 @@ const Header = () => {
     ? [
         { name: 'Home', path: '/' },
         { name: 'All Issues', path: '/allissues' },
-        { name: 'Add Issues', path: '/addissues' },
-        { name: 'My Issues', path: '/myissues' },
-        { name: 'My Contribution', path: '/contribution' },
+        // { name: 'Add Issues', path: '/addissues' },
+        // { name: 'My Issues', path: '/myissues' },
+        // { name: 'My Contribution', path: '/contribution' },
+        {
+          name: 'Dashbord',
+          path: '/dashbord',
+        },
       ]
     : [
         { name: 'Home', path: '/' },
