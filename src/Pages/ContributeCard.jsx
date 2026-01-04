@@ -77,21 +77,21 @@ const ContributeCard = () => {
     <div className="p-4 sm:p-6 mt-13">
       <title>ContributeCard | Community Cleanliness</title>
 
-      <div className="max-w-3xl mx-auto text-center text-3xl font-bold pb-5">
+      <div className="max-w-3xl mx-auto text-center text-3xl font-bold pb-5 text-blue-500">
         Pay Cleanup Contribution
       </div>
-      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden transition hover:shadow-2xl">
+      <div className="max-w-3xl mx-auto  bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70 shadow-xl rounded-2xl overflow-hidden transition hover:shadow-2xl">
         <img
           src={issue.image}
           alt={issue.title}
           className="w-full h-56 sm:h-72 md:h-80 object-cover"
         />
         <div className="p-4 sm:p-6">
-          <h1 className="text-xl sm:text-2xl font-bold text-green-700 mb-3">
+          <h1 className="text-xl sm:text-2xl font-bold text-blue-700 mb-3">
             {issue.title}
           </h1>
 
-          <div className="flex flex-wrap gap-3 text-gray-600 text-sm sm:text-base mb-4">
+          <div className="flex flex-wrap gap-3  text-sm sm:text-base mb-4">
             <span className="flex items-center gap-1">
               <Tag size={16} /> {issue.category}
             </span>
@@ -110,7 +110,6 @@ const ContributeCard = () => {
             {issue.description}
           </p>
 
-        
           <button
             onClick={() => {
               toast.info('Opening contribution form...', {
@@ -119,18 +118,16 @@ const ContributeCard = () => {
               });
               setShowModal(true);
             }}
-            className="bg-green-600 text-white w-full sm:w-auto px-5 py-2 rounded-lg font-medium hover:bg-green-700 transition"
+            className="bg-green-600 text-white w-full sm:w-auto px-5 py-2 rounded-lg font-medium hover:bg-green-700 transition cursor-pointer"
           >
             Pay Clean-Up Contribution
           </button>
         </div>
       </div>
 
-   
       {showModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-3">
           <div className="bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 rounded-2xl shadow-2xl relative animate-fadeIn">
-          
             <button
               onClick={() => {
                 toast.warn('Contribution form closed', {
@@ -145,7 +142,7 @@ const ContributeCard = () => {
             </button>
 
             <div className="text-center mb-5">
-              <h2 className="text-xl sm:text-2xl font-semibold text-green-700">
+              <h2 className="text-xl sm:text-2xl font-semibold text-blue-700">
                 Pay Contribution
               </h2>
               <p className="text-sm text-gray-500 mt-1">
@@ -172,7 +169,6 @@ const ContributeCard = () => {
               </div>
             </div>
 
-          
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-gray-700 font-medium mb-1 text-sm sm:text-base">
@@ -273,7 +269,6 @@ const ContributeCard = () => {
                 ></textarea>
               </div>
 
-        
               <button
                 type="submit"
                 className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 font-medium text-sm sm:text-base transition"

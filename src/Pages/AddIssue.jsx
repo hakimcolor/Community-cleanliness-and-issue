@@ -165,7 +165,7 @@ const AddIssue = () => {
         <div className="mt-4">
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 border border-[#FFD700] bg-[#2E8B57] text-white px-4 py-2 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300 font-semibold"
+            className="flex items-center justify-center gap-2 border border-[#FFD700] bg-[#2E8B57] text-white px-4 py-2 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300 font-semibold cursor-pointer"
           >
             Submit Issue <FiArrowRight />
           </button>

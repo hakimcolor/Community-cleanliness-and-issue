@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router';
 import ALLCARD from './ALLCARD';
 import { Helmet } from 'react-helmet';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+import { Search } from 'lucide-react';
 
 const AllIssues = () => {
   const allissue = useLoaderData(); // সব ডাটা
@@ -60,15 +61,30 @@ const AllIssues = () => {
         All Issues
       </h2>
 
-      {/* Search & Sort */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-        <input
+        {/* <input
           type="text"
           placeholder="Search by title..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="px-4 py-2 border rounded w-full md:w-1/3 focus:outline-none focus:ring focus:border-blue-400"
-        />
+          className="px-4 py-2 border rounded w-full md:w-1/3 focus:outline-none focus:ring focus:border-blue-400 placeholder:text-black hover:rounded-full"
+        /> */}
+
+        <div className="relative w-full md:w-1/3">
+          {/* Search Icon */}
+          <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+            <Search size={18} className="text-blue-600" />
+          </div>
+
+          {/* Input Field */}
+          <input
+            type="text"
+            placeholder="Search by title..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="px-10 py-2 border rounded-md w-full focus:outline-none focus:ring focus:ring-blue-400 focus:rounded-full placeholder:text-black transition-all duration-300 placeholder:text-blue-400"
+          />
+        </div>
 
         <select
           value={sortOption}

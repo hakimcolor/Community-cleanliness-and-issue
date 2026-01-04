@@ -76,16 +76,16 @@ export const router = createBrowserRouter([
             loader: () =>
               fetch('https://community-clen.vercel.app/contrbutessssssssssss'),
           },
-          // {
-          //   path: '/issue/:id',
-          //   element: (
-          //     <Suspense fallback={<Loading />}>
-          //       <IssueDetails />
-          //     </Suspense>
-          //   ),
-          //   loader: ({ params }) =>
-          //     fetch(`https://community-clen.vercel.app/issue/${params.id}`),
-          // },
+          {
+            path: '/issue/:id',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <IssueDetails />
+              </Suspense>
+            ),
+            loader: ({ params }) =>
+              fetch(`https://community-clen.vercel.app/issue/${params.id}`),
+          },
           {
             path: '/allmyissues/:id',
             element: (
@@ -129,16 +129,16 @@ export const router = createBrowserRouter([
               </Suspense>
             ),
           },
-          {
-            path: '/issue/:id',
-            element: (
-              <Suspense fallback={<Loading />}>
-                <IssueDetails />
-              </Suspense>
-            ),
-            loader: ({ params }) =>
-              fetch(`https://community-clen.vercel.app/issue/${params.id}`),
-          },
+          // {
+          //   path: '/issue/:id',
+          //   element: (
+          //     <Suspense fallback={<Loading />}>
+          //       <IssueDetails />
+          //     </Suspense>
+          //   ),
+          //   loader: ({ params }) =>
+          //     fetch(`https://community-clen.vercel.app/issue/${params.id}`),
+          // },
         ],
       },
       {

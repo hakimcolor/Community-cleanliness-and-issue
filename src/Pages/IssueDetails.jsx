@@ -108,7 +108,7 @@
 // export default IssueDetails;
 import React from 'react';
 import { NavLink, useLoaderData, useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, Tag, DollarSign, ArrowLeft } from 'lucide-react'; // added ArrowLeft
+import { Calendar, MapPin, Tag, DollarSign, ArrowLeft } from 'lucide-react'; 
 import { Helmet } from 'react-helmet';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -116,7 +116,7 @@ import Loading from './Loding';
 
 const IssueDetails = () => {
   const issue = useLoaderData();
-  const navigate = useNavigate(); // for back navigation
+  const navigate = useNavigate(); 
 
   if (!issue) {
     return (
@@ -130,21 +130,20 @@ const IssueDetails = () => {
     <div className="min-h-screen py-5 mt-14 px-6">
       <title>IssueDetails| Community Cleanliness</title>
 
-      {/* Back Button */}
       <div className="mb-4">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+          className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline cursor-pointer border-2 border-red-300 p-2 rounded-full"
         >
           <ArrowLeft size={18} /> Back
         </button>
       </div>
 
       <div className="flex items-center justify-center  text-3xl md:text-4xl font-extrabold mb-6 text-blue-600 dark:text-blue-400 text-center">
-        your card details!
+        Your card details!
       </div>
 
-      <div className="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl shadow-xl rounded-2xl overflow-hidden border border-yellow-200 dark:border-gray-700">
+      <div className="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto  bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70 backdrop-blur-xl shadow-xl rounded-2xl overflow-hidden border border-yellow-200 dark:border-gray-700">
         <div className="relative">
           <img
             src={issue.image}
@@ -152,7 +151,7 @@ const IssueDetails = () => {
             className="w-full h-[500px] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl font-bold  text-blue-500 drop-shadow-lg">
               {issue.title}
             </h1>
           </div>
@@ -162,23 +161,23 @@ const IssueDetails = () => {
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-2 text-sm">
               <Tag className="text-yellow-500" size={18} />
-              <span>
+              <span className="text-[18px]">
                 <strong className="text-[#FFD700]">Category:</strong>{' '}
                 {issue.category}
               </span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
-              <MapPin className="text-green-500" size={18} />
-              <span>
-                <strong className="text-[#FFD700]">Location:</strong>{' '}
+              <MapPin className="" size={18} />
+              <span className="text-[18px]">
+                <strong className="text-[#ffd900]">Location:</strong>{' '}
                 {issue.location}
               </span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
-              <Calendar className="text-blue-500" size={18} />
-              <span>
+              <Calendar className="text-blue-900" size={18} />
+              <span className="text-[18px]">
                 <strong className="text-[#FFD700]">Date:</strong>{' '}
                 {issue.date || 'Not specified'}
               </span>
@@ -186,7 +185,7 @@ const IssueDetails = () => {
 
             <div className="flex items-center gap-2 text-sm">
               <DollarSign className="text-red-500" size={18} />
-              <span>
+              <span className="text-[18px]">
                 <strong className="text-[#FFD700]">Suggested Budget:</strong> $
                 {issue.amount}
               </span>
@@ -196,10 +195,10 @@ const IssueDetails = () => {
           <hr className="border-t border-yellow-200 dark:border-gray-700" />
 
           <div>
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-semibold mb-2 text-blue-900 font-bold">
               Description
             </h2>
-            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-900">
               {issue.description}
             </p>
           </div>
