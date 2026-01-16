@@ -13,12 +13,14 @@
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.17",
     "animation": "^0.1.3",
+    "chart.js": "^4.5.1",
     "firebase": "^12.5.0",
     "framer-motion": "^12.23.26",
-    "jspdf": "^3.0.3",
-    "jspdf-autotable": "^5.0.2",
+    "jspdf": "^3.0.4",
+    "jspdf-autotable": "^5.0.7",
     "lucide-react": "^0.553.0",
     "react": "^19.1.1",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.1.1",
     "react-helmet": "^6.1.0",
     "react-hot-toast": "^2.6.0",
@@ -31,7 +33,8 @@
     "sweetalert2": "^11.26.3",
     "sweetalert2-react-content": "^5.1.0",
     "swiper": "^12.0.3",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.17",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

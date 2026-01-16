@@ -1,138 +1,131 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 
-const TipsSlider = () => {
-  const tips = [
+const HomeSlider = () => {
+  const slides = [
     {
-      _id: '6912c54a2520efbc3a4007a7',
-      title: 'Broken Street Light',
-      category: 'Broken Public Property',
-      location: 'Bashabo, Dhaka',
-      description: 'Street light pole damaged, causing dark area at night.',
-      image:
-        'https://i.ibb.co.com/vvkgngWM/Gemini-Generated-Image-vfnd76vfnd76vfnd.jpg',
-      amount: 180,
-      email: 'julia@mail.com',
-      date: '2025-10-24',
+      _id: '1',
+      title: 'Report Community Issues',
+      subtitle: 'Make Your Voice Heard',
+      description: 'Join thousands of community members in creating positive change. Report issues, track progress, and see real results.',
+      image: 'https://i.ibb.co.com/vvkgngWM/Gemini-Generated-Image-vfnd76vfnd76vfnd.jpg',
+      cta: 'Start Reporting'
     },
     {
-      _id: '6912c54a2520efbc3a4007a6',
-      title: 'Illegal Shop Setup on Footpath',
-      category: 'Illegal Construction',
-      location: 'Brigade Road, Bangalore',
-      description: 'Vendors blocking pedestrian paths with makeshift shops.',
-      image:
-        'https://i.ibb.co.com/fGTyvdTx/Gemini-Generated-Image-bqy6xjbqy6xjbqy6.jpg',
-      amount: 300,
-      email: 'rohan@mail.com',
-      date: '2025-10-23',
+      _id: '2',
+      title: 'Community-Driven Solutions',
+      subtitle: 'Together We Build Better',
+      description: 'Connect with neighbors, collaborate on solutions, and build stronger communities through collective action.',
+      image: 'https://i.ibb.co.com/fGTyvdTx/Gemini-Generated-Image-bqy6xjbqy6xjbqy6.jpg',
+      cta: 'Join Community'
     },
     {
-      _id: '6912c54a2520efbc3a4007ac',
-      title: 'Dumped Garbage in Playground',
-      category: 'Garbage',
-      location: 'Bashundhara Field, Dhaka',
-      description:
-        'Community members dumping garbage in children’s playground.',
-      image:
-        'https://i.ibb.co.com/prZ7385V/Gemini-Generated-Image-qupsz6qupsz6qups.jpg',
-      amount: 270,
-      email: 'emma@mail.com',
-      date: '2025-10-29',
-    },
-    {
-      _id: '6912c54a2520efbc3a4007a4',
-      title: 'Uncollected Waste in Residential Area',
-      category: 'Garbage',
-      location: 'Sector 7, Rohini, Delhi',
-      description:
-        'Garbage truck has not visited for over a week causing bad odor.',
-      image:
-        'https://i.ibb.co.com/kgJGZgw0/id-6912c54a2520efbc3a4007a4-title-Uncoll.jpg',
-      amount: 100,
-      email: 'bob@mail.com',
-      date: '2025-10-21',
-    },
-    {
-      _id: '6912c54a2520efbc3a4007a5',
-      title: 'Unauthorized Building Extension',
-      category: 'Illegal Construction',
-      location: 'Gulshan 2, Dhaka',
-      description: 'Resident built an extra floor without permission.',
-      image:
-        'https://i.ibb.co/jk1wpWqz/Gemini-Generated-Image-wugn03wugn03wugn.jpg',
-      amount: 500,
-      email: 'karen@mail.com',
-      date: '2025-10-22',
-    },
+      _id: '3',
+      title: 'Track Real Impact',
+      subtitle: 'See Change Happen',
+      description: 'Monitor the progress of reported issues and celebrate the positive changes happening in your neighborhood.',
+      image: 'https://i.ibb.co.com/prZ7385V/Gemini-Generated-Image-qupsz6qupsz6qups.jpg',
+      cta: 'View Progress'
+    }
   ];
 
   return (
-    <div className="max-w-7xl mx-auto my-16 px-4 bg-gradient-to-b from-green-100 via-green-50 to-white py-5 mt-[-2px] rounded-3xl shadow-lg">
-      <h2 className="text-4xl font-extrabold text-center mb-10 text-blue-500 drop-shadow-sm">
-        🧹 Community Cleanup Highlights
-      </h2>
-
+    <div className="relative w-full h-full">
       <Swiper
-        modules={[Autoplay, Pagination, Navigation]}
-        spaceBetween={40}
+        modules={[Autoplay, Pagination, Navigation, EffectFade]}
+        spaceBetween={0}
         slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3500, disableOnInteraction: false }}
+        navigation={{
+          nextEl: '.swiper-button-next-custom',
+          prevEl: '.swiper-button-prev-custom',
+        }}
+        pagination={{ 
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet-custom',
+          bulletActiveClass: 'swiper-pagination-bullet-active-custom'
+        }}
+        autoplay={{ 
+          delay: 5000, 
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        }}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
         loop={true}
-        className="rounded-3xl"
+        className="w-full h-full"
       >
-        {tips.map((tip) => (
-          <SwiperSlide key={tip._id}>
-            <div className="flex flex-col md:flex-row items-center border border-green-200 rounded-3xl p-8 bg-gradient-to-r from-green-50 via-white to-green-100 shadow-xl hover:shadow-green-400 transition duration-500 gap-8">
-           
-              <div className="flex-1 space-y-4">
-                <h3 className="text-3xl font-bold text-blue-500">{tip.title}</h3>
-                <p className="text-yellow-400 text-lg">{tip.category}</p>
-                <p className="text-gray-500 text-lg">{tip.description}</p>
-                <div className="text-sm text-gray-700 space-y-1">
-                  <p>
-                    <span className="font-semibold text-green-700">
-                      📍 Location:
-                    </span>{' '}
-                    {tip.location}
+        {slides.map((slide) => (
+          <SwiperSlide key={slide._id}>
+            <div className="relative w-full h-full overflow-hidden">
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              />
+              
+              {/* Dark Overlay with Opacity */}
+              <div className="absolute inset-0 bg-black opacity-60" />
+              
+              {/* Content */}
+              <div className="relative z-10 flex items-center justify-center h-full px-4">
+                <div className="text-center text-white max-w-4xl mx-auto">
+                  <h3 className="text-lg md:text-xl font-medium mb-2 opacity-90">
+                    {slide.subtitle}
+                  </h3>
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    {slide.title}
+                  </h1>
+                  <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
+                    {slide.description}
                   </p>
-                  <p>
-                    <span className="font-semibold text-green-700">
-                      💰 Support Needed:
-                    </span>{' '}
-                    ${tip.amount}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-green-700">
-                      📅 Date:
-                    </span>{' '}
-                    {tip.date}
-                  </p>
+                  <Link to="/allissues">
+                    <button className="bg-white text-gray-800 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                      {slide.cta}
+                    </button>
+                  </Link>
                 </div>
-              </div>
-
-           
-              <div className="flex-1 relative group">
-                <img
-                  src={tip.image}
-                  alt={tip.title}
-                  className="w-full h-80 md:h-96 object-cover rounded-2xl transform transition duration-700 group-hover:scale-105 shadow-lg"
-                />
-                <div className="absolute inset-0 bg-green-200 bg-opacity-20 rounded-2xl opacity-0 group-hover:opacity-40 transition duration-500"></div>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Custom Navigation Buttons */}
+      <button className="swiper-button-prev-custom absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button className="swiper-button-next-custom absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      {/* Custom Pagination Styles */}
+      <style jsx>{`
+        .swiper-pagination-bullet-custom {
+          width: 12px;
+          height: 12px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          margin: 0 4px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .swiper-pagination-bullet-active-custom {
+          background: white;
+          transform: scale(1.2);
+        }
+      `}</style>
     </div>
   );
 };
 
-export default TipsSlider;
+export default HomeSlider;

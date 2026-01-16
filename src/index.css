@@ -1,16 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
+
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --header-bg: #2e8b57;
-  --header-text: #ffffff;
+  /* Primary Colors */
+  --primary: #2563eb;     /* Blue */
+  --secondary: #059669;   /* Green */
+  --accent: #dc2626;      /* Red */
+  
+  /* Neutral Colors */
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-900: #111827;
+  --neutral-800: #1f2937;
+  
+  /* Light Mode */
+  --bg-color: var(--neutral-50);
+  --text-color: var(--neutral-900);
+  --text-secondary: var(--neutral-800);
+  --header-bg: var(--primary);
+  --header-text: var(--neutral-50);
 }
 
 [data-theme='dark'] {
-  --bg-color: #1f1f1f;
-  --text-color: #ffffff;
-  --header-bg: #111827;
-  --header-text: #ffffff;
+  /* Dark Mode */
+  --bg-color: var(--neutral-900);
+  --text-color: var(--neutral-50);
+  --text-secondary: var(--neutral-100);
+  --header-bg: var(--neutral-800);
+  --header-text: var(--neutral-50);
+}
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
 
 body {

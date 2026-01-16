@@ -131,19 +131,24 @@ const IssueDetails = () => {
       <title>IssueDetails| Community Cleanliness</title>
 
       <div className="mb-4">
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline cursor-pointer border-2 border-red-300 p-2 rounded-full"
-        >
-          <ArrowLeft size={18} /> Back
-        </button>
+        <div className="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto flex items-center justify-between mb-6">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-2 font-semibold hover:underline cursor-pointer border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white p-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <ArrowLeft size={18} /> Back
+          </button>
+          
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center flex-1 mx-4" style={{ color: 'var(--text-color)' }}>
+            Your card details!
+          </h1>
+          
+          {/* Empty div for balance */}
+          <div className="w-[120px]"></div>
+        </div>
       </div>
 
-      <div className="flex items-center justify-center  text-3xl md:text-4xl font-extrabold mb-6 text-blue-600 dark:text-blue-400 text-center">
-        Your card details!
-      </div>
-
-      <div className="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto  bg-gradient-to-br from-[#2E8B57]/90 via-[#3CB371]/80 to-[#90EE90]/70 backdrop-blur-xl shadow-xl rounded-2xl overflow-hidden border border-yellow-200 dark:border-gray-700">
+      <div className="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 shadow-xl hover:shadow-2xl transition-all duration-500" style={{ backgroundColor: 'var(--bg-color)' }}>
         <div className="relative">
           <img
             src={issue.image}
@@ -151,54 +156,54 @@ const IssueDetails = () => {
             className="w-full h-[500px] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-            <h1 className="text-3xl sm:text-4xl font-bold  text-blue-500 drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">
               {issue.title}
             </h1>
           </div>
         </div>
 
-        <div className="p-8 text-gray-800 dark:text-gray-200 space-y-5">
+        <div className="p-8 space-y-5" style={{ color: 'var(--text-color)' }}>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-2 text-sm">
               <Tag className="text-yellow-500" size={18} />
               <span className="text-[18px]">
-                <strong className="text-[#FFD700]">Category:</strong>{' '}
-                {issue.category}
+                <strong className="text-blue-600 dark:text-blue-400">Category:</strong>{' '}
+                <span style={{ color: 'var(--text-secondary)' }}>{issue.category}</span>
               </span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
-              <MapPin className="" size={18} />
+              <MapPin className="text-green-500" size={18} />
               <span className="text-[18px]">
-                <strong className="text-[#ffd900]">Location:</strong>{' '}
-                {issue.location}
+                <strong className="text-green-600 dark:text-green-400">Location:</strong>{' '}
+                <span style={{ color: 'var(--text-secondary)' }}>{issue.location}</span>
               </span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
-              <Calendar className="text-blue-900" size={18} />
+              <Calendar className="text-blue-500" size={18} />
               <span className="text-[18px]">
-                <strong className="text-[#FFD700]">Date:</strong>{' '}
-                {issue.date || 'Not specified'}
+                <strong className="text-blue-600 dark:text-blue-400">Date:</strong>{' '}
+                <span style={{ color: 'var(--text-secondary)' }}>{issue.date || 'Not specified'}</span>
               </span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
               <DollarSign className="text-red-500" size={18} />
               <span className="text-[18px]">
-                <strong className="text-[#FFD700]">Suggested Budget:</strong> $
-                {issue.amount}
+                <strong className="text-red-600 dark:text-red-400">Suggested Budget:</strong>{' '}
+                <span className="text-xl font-bold text-blue-600 dark:text-blue-400">${issue.amount}</span>
               </span>
             </div>
           </div>
 
-          <hr className="border-t border-yellow-200 dark:border-gray-700" />
+          <hr className="border-t border-gray-200 dark:border-gray-700" />
 
           <div>
-            <h2 className="text-2xl font-semibold mb-2 text-blue-900 font-bold">
+            <h2 className="text-2xl font-semibold mb-2 text-blue-600 dark:text-blue-400">
               Description
             </h2>
-            <p className="leading-relaxed text-gray-700 dark:text-gray-900">
+            <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {issue.description}
             </p>
           </div>
@@ -206,7 +211,7 @@ const IssueDetails = () => {
           <NavLink to={`/contributionss/${issue._id}`}>
             <div className="pt-6 flex justify-center">
               <button
-                className="border border-[#FFD700] text-white px-4 py-1 rounded-full hover:bg-[#FFD700] hover:text-[#2E8B57] transition duration-300 cursor-pointer text-2xl font-bold"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 text-xl"
                 onClick={() =>
                   toast.success('Thank you for your contribution!', {
                     position: 'top-right',

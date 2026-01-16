@@ -193,14 +193,16 @@ import PrivateRouter from './PriveteRouter';
 import PublicRoute from './PublicRouter';
 import Loading from '../Pages/Loding';
 import Dashbord from '../Pages/Dashbord/Dashbord';
- // Separate layout for dashboard
 
 // Lazy load all pages
 const Home = lazy(() => import('../Pages/Home'));
+const About = lazy(() => import('../Pages/About'));
+const Profile = lazy(() => import('../Pages/Profile'));
 const SignUp = lazy(() => import('../Pages/SingUp'));
 const SignIn = lazy(() => import('../Pages/Singin'));
 const AddIssue = lazy(() => import('../Pages/AddIssue'));
 const MyContribution = lazy(() => import('../Pages/MyContribution'));
+const Welcome = lazy(() => import('../Pages/Dashbord/Welcome'));
 const Terms = lazy(() => import('../Pages/Terms'));
 const Privacy = lazy(() => import('../Pages/Privacyssss'));
 const Contact = lazy(() => import('../Pages/Contact'));
@@ -232,6 +234,22 @@ export const router = createBrowserRouter([
           </Suspense>
         ),
         loader: () => fetch('https://community-clen.vercel.app/issue'),
+      },
+      {
+        path: 'about',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'profile',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Profile />
+          </Suspense>
+        ),
       },
       {
         element: <PublicRoute />,
@@ -279,6 +297,26 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: 'issue/:id',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <IssueDetails />
+          </Suspense>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://community-clen.vercel.app/issue/${params.id}`),
+      },
+      {
+        path: 'contributionss/:id',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ContributeCard />
+          </Suspense>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://community-clen.vercel.app/issue/${params.id}`),
+      },
+      {
         path: '*',
         element: (
           <Suspense fallback={<Loading />}>
@@ -300,7 +338,7 @@ export const router = createBrowserRouter([
             index: true,
             element: (
               <Suspense fallback={<Loading />}>
-                <AddIssue /> {/* Default dashboard page, can change */}
+                <Welcome />
               </Suspense>
             ),
           },
