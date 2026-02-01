@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -19,6 +19,11 @@
   --text-secondary: var(--neutral-800);
   --header-bg: var(--primary);
   --header-text: var(--neutral-50);
+  
+  /* Font Families */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-accent: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 [data-theme='dark'] {
@@ -30,12 +35,89 @@
   --header-text: var(--neutral-50);
 }
 
+/* Base font - Inter for body text */
 * {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family: var(--font-body);
 }
 
+/* Poppins for all headings */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Montserrat for buttons, labels, and special elements */
+button, 
+.btn, 
+label, 
+.font-accent,
+.badge,
+.tag,
+nav a,
+.menu-item,
+.card-title {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Enhanced heading styles */
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+/* Body text optimization */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: all 0.3s ease;
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+/* Button text styling */
+button {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Link styling */
+a {
+  font-family: var(--font-accent);
+  font-weight: 500;
+}
+
+/* Form elements */
+input, 
+textarea, 
+select {
+  font-family: var(--font-body);
+}
+
+/* Special emphasis */
+strong, 
+b {
+  font-weight: 700;
+}
+
+/* Code and monospace */
+code, 
+pre {
+  font-family: 'Courier New', monospace;
 }
