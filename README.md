@@ -4,6 +4,7 @@ A full-stack **MERN Stack** web application that empowers communities to report 
 
 🌐 **Live Site:**  
 https://community-cleanliness.netlify.app/allissues  
+<img width="1916" height="905" alt="Screenshot 2026-02-08 004248" src="https://github.com/user-attachments/assets/7f10724a-62e7-444a-baf5-c1beaf0f7ea3" />
 
 📦 **GitHub Repository:**  
 https://github.com/hakimcolor/Community-cleanliness-and-issue.git  
@@ -99,7 +100,7 @@ Community-cleanliness-and-issue
 PORT=5000 
 
   MONGO_URI=your_mongodb_connection_string
-  JWT_SECRET=your_secret_key
+
      
      
 ### 1️⃣ Clone the Repository
